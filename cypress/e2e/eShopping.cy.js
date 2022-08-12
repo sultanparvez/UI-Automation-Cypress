@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 import "cypress-localstorage-commands"
-import  {loginPage, Behaviours , Assertions} from '../../pages/sauceDemo';
+import  {loginPage, Behaviours , Assertions} from '../pages/sauceDemo';
 
 const login= new loginPage()
 const behaviour = new Behaviours()

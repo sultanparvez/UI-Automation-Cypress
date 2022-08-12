@@ -24,6 +24,9 @@ export class Behaviours{
     click(selector){   
         cy.get(selector).click() 
     }
+    addProduct(productName){
+        cy.addProduct(productName)
+    }
     timeout(miliseconds){   
         cy.wait(miliseconds)
     }

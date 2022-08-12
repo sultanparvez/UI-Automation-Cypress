@@ -1,19 +1,13 @@
 /// <reference types="cypress"/>
 import "cypress-localstorage-commands"
-import  {loginPage, Behaviours , Assertions} from '../pages/sauceDemo';
+import  { Behaviours , Assertions} from '../pages/sauceDemo';
 
-const login= new loginPage()
 const behaviour = new Behaviours()
 const check = new Assertions()
 
 describe("E-Shopping",()=>{
     beforeEach(() => {
-    cy.fixture('Credentials').then(Data =>{
-      login.navigate('/');
-      login.enterUsername(Data.name)
-      login.enterPassword(Data.password)
-      login.clickSubmit();
-      })
+      cy.login()
       behaviour.timeout(3000)
     })
 
@@ -21,12 +15,15 @@ describe("E-Shopping",()=>{
         behaviour.screenshot('HomePage');
         check.containCheck('.title','Products')
   })
+ 
     it ("Product Selection $ Checkout",()=>{
-        behaviour.click('button[name="add-to-cart-sauce-labs-backpack"]')
+        behaviour.addProduct("Sauce Labs Backpack");
         behaviour.timeout(1000)
-        behaviour.click('button[name="add-to-cart-sauce-labs-bolt-t-shirt"]') 
+        // behaviour.click('button[name="add-to-cart-sauce-labs-bolt-t-shirt"]') 
+        behaviour.addProduct("Sauce Labs Bolt T-Shirt");
         behaviour.timeout(1000)
-        behaviour.click('button[name="add-to-cart-test.allthethings()-t-shirt-(red)"]')
+        // behaviour.click('button[name="add-to-cart-test.allthethings()-t-shirt-(red)"]')
+        behaviour.addProduct("Test.allTheThings() T-Shirt (Red)");
         behaviour.timeout(2000)
         behaviour.click('button[name="remove-test.allthethings()-t-shirt-(red)"]')
         check.visibilityCheck("[data-test='product_sort_container']")

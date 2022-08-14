@@ -19,4 +19,11 @@ module.exports = defineConfig({
     baseUrl : "https://www.saucedemo.com",
     chromeWebSecurity:false
   },
+  retries:{
+    //tries agian on failure while run
+    runMode:1,
+    //tries again in gui 
+    openMode:1
+    
+  }
 });

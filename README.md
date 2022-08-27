@@ -2,12 +2,12 @@
 
 To install the dependencies on your pc:
 
-```node.js
+```javaScript
 npm i
 ```
 To run the project:
 
-```node.js
+```javaScript
 npm test
 ```
 

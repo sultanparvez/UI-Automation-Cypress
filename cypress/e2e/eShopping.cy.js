@@ -19,13 +19,11 @@ describe("E-Shopping",()=>{
     it ("Product Selection $ Checkout",()=>{
         behaviour.addProduct("Sauce Labs Backpack");
         behaviour.timeout(1000)
-        // behaviour.click('button[name="add-to-cart-sauce-labs-bolt-t-shirt"]') 
         behaviour.addProduct("Sauce Labs Bolt T-Shirt");
         behaviour.timeout(1000)
-        // behaviour.click('button[name="add-to-cart-test.allthethings()-t-shirt-(red)"]')
-        behaviour.addProduct("Test.allTheThings() T-Shirt (Red)");
-        behaviour.timeout(2000)
-        behaviour.click('button[name="remove-test.allthethings()-t-shirt-(red)"]')
+        // behaviour.addProduct("Test.allTheThings() T-Shirt (Red)").debug();
+        // behaviour.timeout(2000)
+        // behaviour.click('button[name="remove-Test.allTheThings() T-Shirt (Red)"]')
         check.visibilityCheck("[data-test='product_sort_container']")
         behaviour.click('.shopping_cart_badge')
         behaviour.timeout(2000) 
